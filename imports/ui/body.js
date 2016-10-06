@@ -1,11 +1,12 @@
 import { Template } from 'meteor/templating';
 
+import { Tasks } from '../api/tasks.js';
+
 import './body.html';
 
+// Get tasks from a collection instead of a static array
 Template.body.helpers({
-  tasks: [
-    { text: 'This is task 1' },
-    { text: 'This is task 2' },
-    { text: 'This is task 3' },
-  ],
+  tasks() {
+    return Tasks.find({})
+  }
 })
