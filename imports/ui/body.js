@@ -4,15 +4,15 @@ import { Tasks } from '../api/tasks.js';
 
 import './body.html';
 
-// Get tasks from a collection instead of a static array
 Template.body.helpers({
+  // Get tasks from a collection instead of a static array
   tasks() {
-    return Tasks.find({})
+    return Tasks.find({}, { sort: { createdAt: -1 } });
   },
 });
 
-// Add event handler to listen to the submit event on the form
 Template.body.events({
+  // Add event handler to listen to the submit event on the form
   'submit .new-task'(event) {
     // Prevent default browser form submit
     event.preventDefault();
