@@ -24,6 +24,9 @@ Template.body.helpers({
     // Otherwise, return all of the tasks
     return Tasks.find({}, { sort: { createdAt: -1 } });
   },
+  incompleteCount() {
+    return Tasks.find({ checked: { $ne: true } }).count();
+  },
 });
 
 // Event, just like Helper, is a method that accepts an object
