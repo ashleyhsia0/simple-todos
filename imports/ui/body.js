@@ -10,6 +10,7 @@ import './body.html';
 // ReactiveDict to store temporary reactive state on the client
 Template.body.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict();
+  Meteor.subscribe('tasks');
 });
 
 // Helper is something that we will have access to in our html
